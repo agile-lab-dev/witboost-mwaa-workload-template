@@ -39,3 +39,4 @@ spec:
       scheduleCron: ${{ values.scheduleCron }}
       sourceDag: ${{ values.sourceDag }}
       destinationDag: ${{ values.destinationDag }}
+      destinationSql: ${{ values.destinationSql }}

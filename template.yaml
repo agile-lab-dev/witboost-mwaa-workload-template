@@ -103,23 +103,27 @@ spec:
         sourceBucket: 
           title: Source s3 dag location
           type: string
-          description: Source s3 dag location
+          description: Specify only the name of the source bucket
         destinationBucket:
           title: Destination s3 dag location
           type: string
-          description: Destination s3 dag location
+          description: Specify only the name of the destination bucket
         scheduleCron: 
           title: Cron expression defining schedule
           type: string
-          description: Cron expression defining schedule
+          description: Cron expression defining schedule on which the job will trigger
         sourceDag:
-          title: Source Dag definition name
+          title: Source Dag path
           type: string
-          description: Source Dag definition name
+          description: Path to the source dag like path/to/the/file
         destinationDag:
-          title: Destination Dag definition name
+          title: Destination Dag path
           type: string
-          description: Destination Dag definition name
+          description: Path to the destination dag like path/to/the/file
+        destinationSql:
+          title: Destination of the snowflake sql file
+          type: string
+          description: It will be put in the destination bucket on the location you specify like path/to/the/file
 
     - title: Choose a location
       required:
@@ -160,6 +164,7 @@ spec:
           sourceDag: '${{ parameters.sourceDag }}'
           destinationDag: '${{ parameters.destinationDag }}'
           scheduleCron: '${{ parameters.scheduleCron }}'
+          destinationSql: '${{ parameters.destinationSql }}'
           useCaseTemplateId: urn:dmb:utm:aws-airflow-workload-template:0.0.0
           infrastructureTemplateId: urn:dmb:itm:aws-workload-airflow-provisioner:0
           useCaseTemplateVersion: 0.0.0
