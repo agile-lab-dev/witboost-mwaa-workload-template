@@ -52,7 +52,7 @@ with DAG(
     )
     snowflake_select = SnowflakeOperator(
         task_id="snowflake_select",
-        sql="simple.sql",
+        sql="snowflake.sql",
         snowflake_conn_id="mysql",
         schema='public',
     )
