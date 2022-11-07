@@ -112,10 +112,14 @@ spec:
           title: Cron expression defining schedule
           type: string
           description: Cron expression defining schedule
-        dagName: 
-          title: Dag definition file name
+        sourceDag:
+          title: Source Dag definition name
           type: string
-          description: Dag definition file name
+          description: Source Dag definition name
+        destinationDag:
+          title: Destination Dag definition name
+          type: string
+          description: Destination Dag definition name
 
     - title: Choose a location
       required:
@@ -153,7 +157,8 @@ spec:
           readsFrom: '${{ parameters.readsFrom }}'
           sourceBucket: '${{ parameters.sourceBucket }}'
           destinationBucket: '${{ parameters.destinationBucket }}'
-          dagName: '${{ parameters.dagName }}'
+          sourceDag: '${{ parameters.sourceDag }}'
+          destinationDag: '${{ parameters.destinationDag }}'
           scheduleCron: '${{ parameters.scheduleCron }}'
           useCaseTemplateId: urn:dmb:utm:aws-airflow-workload-template:0.0.0
           infrastructureTemplateId: urn:dmb:itm:aws-workload-airflow-provisioner:0

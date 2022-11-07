@@ -37,4 +37,5 @@ spec:
       sourceBucket: ${{ values.sourceBucket }}
       destinationBucket: ${{ values.destinationBucket }}
       scheduleCron: ${{ values.scheduleCron }}
-      dagName: ${{ values.dagName }}
+      sourceDag: ${{ values.sourceDag }}
+      destinationDag: ${{ values.destinationDag }}
