@@ -28,7 +28,7 @@ def get_ab_conn_id(ds=None, **kwargs):
     payload = json.dumps({"workspaceId": workspace_id})
     connections = requests.post(f"{ab_url}/connections/list", headers=headers, data=payload).json().get("connections")
     for c in connections:
-        if c.get("name") == "GoogleCovidDataset <> Snowflake":
+        if c.get("name") == "${{ values.connectionName }}":
             return c.get("connectionId")
 
 ### 'os.path.basename(__file__).replace(".py", "")' uses the file name secrets-manager.py for a DAG ID of secrets-manager
@@ -52,7 +52,7 @@ with DAG(
     )
     snowflake_select = SnowflakeOperator(
         task_id="snowflake_select",
-        sql="snowflake.sql",
+        sql="${{ values.destinationSql }}".split("/")[-1],
         snowflake_conn_id="mysql",
         schema='public',
     )

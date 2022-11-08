@@ -124,6 +124,10 @@ spec:
           title: Destination of the snowflake sql file
           type: string
           description: It will be put in the destination bucket on the location you specify like path/to/the/file
+        connectionName:
+          title: Airbyte name of the connection
+          type: string
+          description: Insert the name of the connection for the Airbyte
 
     - title: Choose a location
       required:
@@ -165,6 +169,7 @@ spec:
           destinationDag: '${{ parameters.destinationDag }}'
           scheduleCron: '${{ parameters.scheduleCron }}'
           destinationSql: '${{ parameters.destinationSql }}'
+          connectionName: '${{ parameters.connectionName }}'
           useCaseTemplateId: urn:dmb:utm:aws-airflow-workload-template:0.0.0
           infrastructureTemplateId: urn:dmb:itm:aws-workload-airflow-provisioner:0
           useCaseTemplateVersion: 0.0.0
