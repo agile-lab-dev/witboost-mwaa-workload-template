@@ -97,17 +97,12 @@ spec:
 
     - title: Airflow infrastructure details
       required:
-        - sourceBucket
-        - destinationBucket
+        - scheduleCron
+        - sourceDag
+        - destinationDag
+        - destinationSql
+        - connectionName
       properties:
-        sourceBucket: 
-          title: Source s3 dag location
-          type: string
-          description: Specify only the name of the source bucket
-        destinationBucket:
-          title: Destination s3 dag location
-          type: string
-          description: Specify only the name of the destination bucket
         scheduleCron: 
           title: Cron expression defining schedule
           type: string
@@ -163,8 +158,6 @@ spec:
           developmentGroup: '${{ parameters.developmentGroup }}'
           dependsOn: '${{ parameters.dependsOn }}'
           readsFrom: '${{ parameters.readsFrom }}'
-          sourceBucket: '${{ parameters.sourceBucket }}'
-          destinationBucket: '${{ parameters.destinationBucket }}'
           sourceDag: '${{ parameters.sourceDag }}'
           destinationDag: '${{ parameters.destinationDag }}'
           scheduleCron: '${{ parameters.scheduleCron }}'

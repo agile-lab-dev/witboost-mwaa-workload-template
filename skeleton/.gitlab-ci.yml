@@ -5,6 +5,6 @@ deploy:
   - aws configure set aws_access_key_id ${AWS_ACCESS_KEY} --profile default
   - aws configure set aws_secret_access_key ${AWS_SECRET_KEY} --profile default
   - aws configure set region eu-central-1 --profile default
-  - aws s3 cp artifacts/airbyte_snowflake_dag.py s3://${{ values.sourceBucket }}/${{ values.sourceDag }}
-  - aws s3 cp artifacts/snowflake.sql s3://${{ values.destinationBucket }}/${{ values.destinationSql }}
+  - aws s3 cp artifacts/airbyte_snowflake_dag.py s3://aws-ia-mwaa-eu-central-1-278435202378/${{ values.sourceDag }}
+  - aws s3 cp artifacts/snowflake.sql s3://aws-ia-mwaa-eu-central-1-278435202378/${{ values.destinationSql }}
   environment: production
