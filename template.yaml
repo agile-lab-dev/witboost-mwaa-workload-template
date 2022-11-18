@@ -98,27 +98,26 @@ spec:
     - title: Airflow infrastructure details
       required:
         - scheduleCron
-        - sourceDag
-        - destinationDag
-        - destinationSql
+        - dagName
+        - sqlName
         - connectionName
       properties:
         scheduleCron: 
           title: Cron expression defining schedule
           type: string
           description: Cron expression defining schedule on which the job will trigger
-        sourceDag:
-          title: Source Dag path
+        dagName:
+          title: Dag Name
           type: string
-          description: Path to the source dag like path/to/the/file
-        destinationDag:
-          title: Destination Dag path
+          description: Name of the Airflow DAG
+          ui:field: EntityNamePicker
+          default: airbyte_snowflake_dag.py
+        sqlName:
+          title: Name of the snowflake sql file
           type: string
-          description: Path to the destination dag like path/to/the/file
-        destinationSql:
-          title: Destination of the snowflake sql file
-          type: string
-          description: It will be put in the destination bucket on the location you specify like path/to/the/file
+          description: Name of the sql file that would be used to process the data in Snowflake
+          ui:field: EntityNamePicker
+          default: snowflake.sql
         connectionName:
           title: Airbyte name of the connection
           type: string
@@ -158,10 +157,9 @@ spec:
           developmentGroup: '${{ parameters.developmentGroup }}'
           dependsOn: '${{ parameters.dependsOn }}'
           readsFrom: '${{ parameters.readsFrom }}'
-          sourceDag: '${{ parameters.sourceDag }}'
-          destinationDag: '${{ parameters.destinationDag }}'
           scheduleCron: '${{ parameters.scheduleCron }}'
-          destinationSql: '${{ parameters.destinationSql }}'
+          dagName: '${{ parameters.dagName }}'
+          sqlName: '${{ parameters.sqlName }}'
           connectionName: '${{ parameters.connectionName }}'
           useCaseTemplateId: urn:dmb:utm:aws-airflow-workload-template:0.0.0
           infrastructureTemplateId: urn:dmb:itm:aws-workload-airflow-provisioner:0
