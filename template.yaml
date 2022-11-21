@@ -166,6 +166,9 @@ spec:
           useCaseTemplateVersion: 0.0.0
           destination: '${{ parameters.repoUrl | parseRepoUrl }}'
           displayName: '${{ parameters.displayName }}'
+          destinationPath: dags/
+          sourcePath: source/
+          bucketName: aws-ia-mwaa-eu-central-1-278435202378
 
 
     - id: publish

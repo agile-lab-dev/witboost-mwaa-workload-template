@@ -52,7 +52,7 @@ with DAG(
     )
     snowflake_select = SnowflakeOperator(
         task_id="snowflake_select",
-        sql="${{ values.destinationSql }}".split("/")[-1],
+        sql="${{ values.sqlName }}",
         snowflake_conn_id="snowflake",
         schema='public',
     )

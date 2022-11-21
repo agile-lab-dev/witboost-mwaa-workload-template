@@ -38,3 +38,6 @@ spec:
       dagName: ${{ values.dagName }}
       sqlName: ${{ values.sqlName }}
       connectionName: ${{ values.connectionName }}
+      destinationPath: ${{ values.destinationPath }}
+      sourcePath: ${{ values.sourcePath }}
+      bucketName: ${{ values.bucketName }}

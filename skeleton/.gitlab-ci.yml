@@ -5,5 +5,5 @@ deploy:
   - aws configure set aws_access_key_id ${AWS_ACCESS_KEY} --profile default
   - aws configure set aws_secret_access_key ${AWS_SECRET_KEY} --profile default
   - aws configure set region eu-central-1 --profile default
-  - aws s3 cp artifacts/${{ values.dagName }} s3://aws-ia-mwaa-eu-central-1-278435202378/source/${{ values.dagName }} # the bucket name must be changed accordingly to the environment
+  - aws s3 cp artifacts/${{ values.dagName }} s3://${{ values.bucketName }}/${{ values.sourcePath }}${{ values.dagName }}
   environment: production
