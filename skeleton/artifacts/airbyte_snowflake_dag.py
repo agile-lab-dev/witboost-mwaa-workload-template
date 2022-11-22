@@ -28,7 +28,7 @@ def get_ab_conn_id(ds=None, **kwargs):
     payload = json.dumps({"workspaceId": workspace_id})
     connections = requests.post(f"{ab_url}/connections/list", headers=headers, data=payload).json().get("connections")
     for c in connections:
-        if c.get("name") == "${{ values.connectionName }}":
+        if c.get("name") == "${{ values.identifier.split(".").slice(0, 3).join(".") }}.${{ values.connectionName }}":
             return c.get("connectionId")
 
 ### 'os.path.basename(__file__).replace(".py", "")' uses the file name secrets-manager.py for a DAG ID of secrets-manager

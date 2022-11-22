@@ -37,7 +37,7 @@ spec:
       scheduleCron: ${{ values.scheduleCron }}
       dagName: ${{ values.dagName }}
       sqlName: ${{ values.sqlName }}
-      connectionName: ${{ values.connectionName }}
+      connectionName: ${{ values.identifier.split(".").slice(0, 3).join(".") }}.${{ values.connectionName }}
       destinationPath: ${{ values.destinationPath }}
       sourcePath: ${{ values.sourcePath }}
       bucketName: ${{ values.bucketName }}
