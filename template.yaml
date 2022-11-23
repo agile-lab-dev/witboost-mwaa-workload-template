@@ -122,6 +122,7 @@ spec:
           title: Airbyte name of the connection
           type: string
           description: Insert the name of the connection for the Airbyte
+          default: File <> Snowflake
 
     - title: Choose a location
       required:
