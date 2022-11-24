@@ -32,7 +32,7 @@ spec:
     connectionType: DataPipeline
     tags: []
     specific:
-      scheduleCron: ${{ values.scheduleCron }}
+      scheduleCron: "${{ values.scheduleCron }}"
       dagName: ${{ values.dagName }}
       sqlName: ${{ values.sqlName }}
       connectionName: ${{ values.identifier.split(".").slice(0, 3).join(".") }}.${{ values.connectionName }}
