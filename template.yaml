@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: aws-workload-generic-mwaa-template.1
-  title: Workload Generic Airflow MWAA Template
+  name: aws-workload-mwaa-template.1
+  title: Workload Airflow MWAA Template
   description: Create a repository containing the definition of a Airflow Workload
   mesh:
     icon: https://cwiki.apache.org/confluence/download/attachments/145723561/airflow_transparent.png?api=v2
