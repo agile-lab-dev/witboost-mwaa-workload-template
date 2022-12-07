@@ -73,8 +73,5 @@ The components **[Airbyte Workload](Airbyte_Component.md)**, **[Snowflake Output
 5. When you click on the name of the workload, you would be able to see the details of the workload that is created.
 
     <img src="./images/CreatedMWAA.png">
-<<<<<<< HEAD
-=======
 
 Now that we have added all necessary components to the Data Product, we can move on [deploying the Data Product](Deploy_Data_Product.md).
->>>>>>> Aligned docs with Installation

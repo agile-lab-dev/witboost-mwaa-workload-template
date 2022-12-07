@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: aws-workload-airflow-template.1
-  title: Workload Airflow MWAA Template
+  name: aws-workload-generic-mwaa-template.1
+  title: Workload Generic Airflow MWAA Template
   description: Create a repository containing the definition of a Airflow Workload
   mesh:
     icon: https://cwiki.apache.org/confluence/download/attachments/145723561/airflow_transparent.png?api=v2
@@ -91,8 +91,6 @@ spec:
       required:
         - scheduleCron
         - dagName
-        - sqlName
-        - connectionName
       properties:
         scheduleCron: 
           title: Cron expression defining schedule
@@ -104,17 +102,6 @@ spec:
           description: Name of the Airflow DAG
           ui:field: EntityNamePicker
           default: airbyte_snowflake_dag.py
-        sqlName:
-          title: Name of the snowflake sql file
-          type: string
-          description: Name of the sql file that would be used to process the data in Snowflake
-          ui:field: EntityNamePicker
-          default: snowflake.sql
-        connectionName:
-          title: Airbyte name of the connection
-          type: string
-          description: Insert the name of the connection for the Airbyte
-          default: File <> Snowflake
 
     - title: Choose a location
       required:
@@ -152,8 +139,6 @@ spec:
           readsFrom: '${{ parameters.readsFrom }}'
           scheduleCron: '${{ parameters.scheduleCron }}'
           dagName: '${{ parameters.dagName }}'
-          sqlName: '${{ parameters.sqlName }}'
-          connectionName: '${{ parameters.connectionName }}'
           useCaseTemplateId: urn:dmb:utm:aws-airflow-workload-template:0.0.0
           infrastructureTemplateId: urn:dmb:itm:aws-workload-airflow-provisioner:0
           useCaseTemplateVersion: 0.0.0
