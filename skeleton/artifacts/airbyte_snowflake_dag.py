@@ -9,7 +9,8 @@ import os
 import requests
 import json
 
-sm_secretId_name = 'airflow/connections/airbyte_url'
+schedule_cron = "${{ values.scheduleCron }}" # The custom cron expression you want to use
+component_identifier = "${{ values.identifier }}"
 
 default_args = {
     'owner': 'agilelab',
@@ -25,7 +26,8 @@ with DAG(
         default_args=default_args,
         dagrun_timeout=timedelta(hours=2),
         start_date=days_ago(1),
-        schedule_interval='${{ values.scheduleCron }}', 
+        schedule_interval=schedule_cron, 
         is_paused_upon_creation=False
 ) as dag:
     ### Add your dag Operators here
+    ...
