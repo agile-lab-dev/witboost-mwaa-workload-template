@@ -86,6 +86,14 @@ spec:
             ui:options:
               allowArbitraryValues: false
           description: A Workload could depend on other components
+        readsFrom:
+          title: Reads from
+          type: array
+          default: []
+          items:
+            type: string
+            ui:field: ReadsFromPicker
+          description: This is filled only for DataPipeline workloads and it represents the list of output ports or external systems that is reading
 
     - title: Airflow infrastructure details
       required:
