@@ -31,6 +31,8 @@ spec:
     workloadType: batch
     connectionType: DataPipeline
     tags: []
+    readsFrom: {% if values.readsFrom | length > 0 %}{% for i in values.readsFrom %}
+      - ${{ i }}{% endfor %}{% else %}[]{% endif %}
     specific:
       scheduleCron: "${{ values.scheduleCron }}"
       dagName: ${{ values.dagName }}
