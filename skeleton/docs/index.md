@@ -1,4 +1,4 @@
-${{ values.component_id }}
+${{ values.name }}
 
 This repository contains a template to create in a self-service way an Airflow Workload on the CDP data platform.
 
