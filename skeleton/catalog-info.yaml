@@ -4,7 +4,7 @@ metadata:
   name: ${{ values.identifier }}
   description: ${{ values.description | dump }}
   annotations:
-    gitlab.com/project-slug: ${{ values.destination.owner + "/" + values.destination.repo }}
+    gitlab.com/project-slug: 'AgileDMBSandbox/${{orgname}}/mesh.repository/${{ values.domain | replace(r/domain:| |-/, "") }}/${{ values.dataproduct.split(".")[1] | replace(r/ |-/g, "") }}/${{ values.name.split(" ") | join("") | lower }}'
     backstage.io/techdocs-ref: dir:.
   tags:
     - aws
