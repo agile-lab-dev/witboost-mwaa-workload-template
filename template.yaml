@@ -137,7 +137,7 @@ spec:
           displayName: '${{ parameters.displayName }}'
           destinationPath: dags/
           sourcePath: source/
-          bucketName: aws-ia-mwaa-eu-west-1-258298869545
+          bucketName: bucketname
 
 
     - id: publish
