@@ -1,0 +1,8 @@
+site_name: "MWAA Workload Template"
+site_description: "Template to create an instance of MWAA Component"
+
+nav:
+  - Template Usage: index.md
+
+plugins:
+  - techdocs-core
