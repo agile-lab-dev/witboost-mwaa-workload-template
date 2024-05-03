@@ -18,7 +18,7 @@ This section includes the basic information that any Component of Witboost must 
 - Depends On: If you want your Workload to depend on other components of the Data Product, you can choose this option (Optional).
 
 
-> In the case of the MWAA operator, you should add here the **Snowflake Output Port, the Airbyte Component, and the SQL Workload Component (if present)** from the Data Product in order for the orchestrator to execute only when these components are in place.
+> In the case of the Airflow operator, you should add here the **Snowflake Output Port, the Airbyte Component, and the SQL Workload Component (if present)** from the Data Product in order for the orchestrator to execute only when these components are in place.
 
 
 *Example:*
@@ -72,4 +72,4 @@ If you want to create your own cron expression and insert the same instead of th
 
 To know more in-depth details about DAG Scheduling, please [refer to this link](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/index.html) which gives details about scheduling.
 
-At this point, the component should be correctly initialised and the related repository created. By default, the MWAA python DAG file does not contain any operators, since we don't know in advance what operators the user will need to perform the needed interaction with the other components. As the MWAA component is based on a generic template, you are free to customize the DAG file in order to perform all the operations needed (e.g. to trigger multiple DBT workloads, multiple Airbyte connection, etc.)
+At this point, the component should be correctly initialised and the related repository created. By default, the Airflow python DAG file does not contain any operators, since we don't know in advance what operators the user will need to perform the needed interaction with the other components. As the Airflow component is based on a generic template, you are free to customize the DAG file in order to perform all the operations needed (e.g. to trigger multiple DBT workloads, multiple Airbyte connection, etc.)

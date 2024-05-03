@@ -5,25 +5,25 @@
 
 # Overview
 
-Use this component to automatically create a DAG in an Amazon MWAA (Managed Workflows for Apache Airflow) instance which helps in orchestrating the data flow through various components.
+Use this component to automatically create a DAG in an Airflow instance which helps in orchestrating the data flow through various components.
 
 ### What's a Workload?
 
 Workload refers to any data processing step (ETL, job, transformation etc.) that is applied to data in a Data Product. Workloads can pull data from sources external to the Data Mesh or from an Output Port of a different Data Product or from Storage Areas inside the same Data Product, and persist it for further processing or serving.
 
 
-### MWAA
+### Apache Airflow
 
-Amazon Managed Workflows for Apache Airflow (MWAA) is an AWS service that allows users to orchestrate their workflows using Airflow Directed Acyclic Graphs (DAGs) written in Python without having to manage the Airflow infrastructure themselves.
+Apache Airflow is an open-source platform designed for orchestrating complex data pipelines. It allows users to programmatically author, schedule, and monitor workflows, providing a scalable and extensible framework for managing data processing tasks. Airflow enables the definition and visualization of workflows as Directed Acyclic Graphs (DAGs), simplifying the management of dependencies and data flow within complex systems.
 
-Key features of Amazon MWAA include:
+Key features of Apache Airflow include:
 
-- Managed Service: Amazon MWAA manages the work involved in setting up Airflow, from provisioning the infrastructure capacity (server instances and storage) to installing the software and providing simplified user management and authorization through AWS Identity and Access Management (IAM) and Single Sign-On (SSO).
-- Integration with AWS Services: Amazon MWAA is a workflow environment that allows data engineers and data scientists to build workflows using other AWS, on-premise, and other cloud services. Workflows in Amazon MWAA can interact with various AWS services like S3, EMR, Athena, SageMaker, etc.
-- Security: Amazon MWAA uses AWS KMS to ensure your data is secure at rest. By default, Amazon MWAA uses AWS managed AWS KMS keys, but you can configure your environment to use your own customer-managed AWS KMS key.
-- Autoscaling: Amazon MWAA configures an environment to run hundreds of tasks in parallel and workers concurrently. As tasks are queued, Amazon MWAA adds workers to meet demand, up to and until it reaches the number you define in Maximum worker count. This autoscaling mechanism will continue running the additional workers, until there are no more tasks to run. When there are no more tasks running, or tasks in the queue, Amazon MWAA disposes of the workers and scales back down to a single worker.
+- **Workflow Scalability and Modularity**: Airflow offers a highly scalable and modular architecture, supporting large-scale data processing through parallel execution of tasks across multiple worker nodes. Its modular design facilitates the development, testing, and maintenance of data pipelines by breaking them down into smaller, manageable tasks.
+- **Dynamic and Extensible**: Airflow's dynamic and extensible nature allows for the easy extension of its functionality through custom operators and sensors, catering to specific business needs. It also supports dynamic task generation, enabling workflows to adapt to changing conditions or data.
+- **Dependency Management and Task Scheduling**: Airflow provides robust capabilities for managing dependencies between tasks and scheduling tasks. Features like task retries, rescheduling, and backfilling enhance the reliability and flexibility of workflows.
+- **Monitoring and Alerting**: The platform includes a built-in web-based user interface, the Airflow UI, which offers real-time insights into workflow statuses, task progress, logs, and alerts for failures or delays. This feature is crucial for maintaining the health and performance of data pipelines.
 
-Learn more about it on the [official website](https://aws.amazon.com/managed-workflows-for-apache-airflow/).
+Learn more about it on the [official website](https://airflow.apache.org/docs/apache-airflow/stable/index.html).
 
 # Usage
 
