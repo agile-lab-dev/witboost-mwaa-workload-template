@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://www.agilelab.it/witboost">
+    <a href="https://www.witboost.com/">
         <img src="docs/img/witboost_logo.svg" alt="witboost" width=600>
     </a>
 </p>
