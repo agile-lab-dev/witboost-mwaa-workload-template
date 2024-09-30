@@ -1,24 +1,28 @@
 <p align="center">
-    <a href="https://www.witboost.com/">
-        <img src="docs/img/witboost_logo.svg" alt="witboost" width=600>
+    <a href="https://www.agilelab.it/witboost">
+        <img src="docs/img/witboost_logo.svg" alt="witboost" width=600 >
     </a>
 </p>
 
-Designed by [Agile Lab](https://www.agilelab.it/), Witboost is a versatile platform that addresses a wide range of sophisticated data engineering challenges. It enables businesses to discover, enhance, and productize their data, fostering the creation of automated data platforms that adhere to the highest standards of data governance. Want to know more about witboost? Check it out [here](https://witboost.com/platform) or [contact us!](https://witboost.com/contact-us)
+Designed by [Agile Lab](https://www.agilelab.it/), Witboost is a versatile platform that addresses a wide range of sophisticated data engineering challenges. It enables businesses to discover, enhance, and productize their data, fostering the creation of automated data platforms that adhere to the highest standards of data governance. Want to know more about Witboost? Check it out [here](https://www.agilelab.it/witboost) or [contact us!](https://www.agilelab.it/contacts)
 
-This repository is part of our [Starter Kit](https://github.com/agile-lab-dev/witboost-starter-kit) meant to showcase witboost's integration capabilities and provide a "batteries-included" product.
+This repository is part of our [Starter Kit](https://github.com/agile-lab-dev/witboost-starter-kit) meant to showcase Witboost's integration capabilities and provide a "batteries-included" product.
 
 
-# Airflow Workload Template
+# MWAA Workload Template
 
 - [Overview](#overview)
 - [Usage](#usage)
 
 # Overview
 
-Use this template to automatically create a DAG in an Airflow instance which helps in orchestrating the data flow through various other components. The component from this template must be created last since it will depend on some components that had already been created.
+Use this template to automatically create a DAG in an Apache Airflow instance which helps in orchestrating the data flow through various other components. This DAG is uploaded to an object storage (the current provided implementation is based on [AWS S3 Storage](https://aws.amazon.com/s3/)) from which the Airflow instance can retrieve it.
 
-Refer to the [witboost Starter Kit repository](https://github.com/agile-lab-dev/witboost-starter-kit) for information on the Specific Provisioner that can be used to deploy components created with this template.
+The component from this template must be created last since it will depend on some components that had already been created.
+
+![Overview](docs/img/hld-Overview.jpg)
+
+Refer to the [Witboost Starter Kit repository](https://github.com/agile-lab-dev/witboost-starter-kit) for information on the Tech Adapter that can be used to deploy components created with this template.
 
 
 ### What's a Template?
@@ -35,16 +39,15 @@ Workload refers to any data processing step (ETL, job, transformation etc.) that
 
 ### Apache Airflow
 
-Apache Airflow is an open-source platform designed for orchestrating complex data pipelines. It allows users to programmatically author, schedule, and monitor workflows, providing a scalable and extensible framework for managing data processing tasks. Airflow enables the definition and visualization of workflows as Directed Acyclic Graphs (DAGs), simplifying the management of dependencies and data flow within complex systems.
+Apache Airflow is an open-source platform for developing, scheduling, and monitoring batch-oriented workflows. Airflow’s extensible Python framework enables you to build workflows connecting with virtually any technology. A web interface helps manage the state of your workflows. Airflow is deployable in many ways, varying from a single process on your laptop to a distributed setup to support even the biggest workflows.
 
-Key features of Apache Airflow include:
+The main characteristic of Airflow workflows is that all workflows are defined in Python code. “Workflows as code” serves several purposes:
 
-- **Workflow Scalability and Modularity**: Airflow offers a highly scalable and modular architecture, supporting large-scale data processing through parallel execution of tasks across multiple worker nodes. Its modular design facilitates the development, testing, and maintenance of data pipelines by breaking them down into smaller, manageable tasks.
-- **Dynamic and Extensible**: Airflow's dynamic and extensible nature allows for the easy extension of its functionality through custom operators and sensors, catering to specific business needs. It also supports dynamic task generation, enabling workflows to adapt to changing conditions or data.
-- **Dependency Management and Task Scheduling**: Airflow provides robust capabilities for managing dependencies between tasks and scheduling tasks. Features like task retries, rescheduling, and backfilling enhance the reliability and flexibility of workflows.
-- **Monitoring and Alerting**: The platform includes a built-in web-based user interface, the Airflow UI, which offers real-time insights into workflow statuses, task progress, logs, and alerts for failures or delays. This feature is crucial for maintaining the health and performance of data pipelines.
+- Dynamic: Airflow pipelines are configured as Python code, allowing for dynamic pipeline generation.
+- Extensible: The Airflow framework contains operators to connect with numerous technologies. All Airflow components are extensible to easily adjust to your environment.
+- Flexible: Workflow parameterization is built-in leveraging the Jinja templating engine.
 
-Learn more about it on the [official website](https://airflow.apache.org/docs/apache-airflow/stable/index.html).
+Learn more about it on the [official website](https://airflow.apache.org/).
 
 # Usage
 
@@ -52,7 +55,7 @@ To get information on how to use this template, refer to this [document](./docs/
 
 ### Component Testing
 
-To verify the component before deploying it along with the Data Product, the component needs to be tested against a CUE Policy defined for an [Airflow Workload](./policies/airflow.cue). This policy needs to be defined inside the **Governance** section of the Witboost Platform.
+To verify the component before deploying it along with the Data Product, the component needs to be tested against a CUE Policy defined for a [Airflow Workload](./policies/airflow.cue). This policy needs to be defined inside the **Governance** section of the Witboost Platform.
 
 For more information, please refer to the [official documentation](https://docs.witboost.agilelab.it/docs/p1_user/p5_managing_policies/p5_1_overview).
 
